@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Timer</title>
+</head>
+<body>
+    <h1>WebSocket Shared Timer</h1>
+    <p id="timer">Waiting for timer...</p>
+
+    <script>
+      const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+      const url = `${protocol}://${window.location.host}/ws/timer`;
+      const ws = new WebSocket(url);
+
+      ws.onmessage = function(event) {
+          document.getElementById("timer").innerText = "Countdown: " + event.data;
+      };
+
+      ws.onclose = function() {
+          document.getElementById("timer").innerText = "WebSocket closed.";
+      };
+    </script>
+</body>
+</html>

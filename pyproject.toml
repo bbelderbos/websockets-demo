@@ -1,0 +1,12 @@
+[project]
+name = "websockets-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "asyncio-redis>=0.16.0",
+    "fastapi-cli>=0.0.7",
+    "fastapi[all]",
+    "redis>=5.2.1",
+]
